@@ -102,13 +102,15 @@
     	ctx.restore();
     }
 
-    function drawMin(min){
+    function drawMin(min,sec){
     	ctx.save();
     	ctx.beginPath();
     	ctx.strokeStyle = '#191970';
     	ctx.lineWidth = 3*rem;
     	ctx.lineCap= 'round';
     	var rad = 2*Math.PI/60*min;
+	var mrad = 2*Math.PI/60/60*sec;
+    	rad = rad+mrad;
     	ctx.rotate(rad);
     	ctx.moveTo(0,10*rem);
     	ctx.lineTo(0,-r+30*rem);
@@ -171,7 +173,7 @@
     	var sec = time.getSeconds();
     	drawBackgroud();
     	drawHour(hour,min);
-    	drawMin(min);
+    	drawMin(min,sec);
     	drawSecond(sec);
     	drawDog()
     	drawTime(hour,min);
